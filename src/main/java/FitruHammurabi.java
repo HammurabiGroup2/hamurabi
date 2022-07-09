@@ -6,27 +6,31 @@ import java.util.Scanner;
 
 public class FitruHammurabi {
 
-    private int population;
-    private int acresOwned;
-    private int grainInStorage;
-    private int bushels;
-    private int bushelsUsedAsSeed;
-    private int immigrants;
-    private int farmingLand;
+    static int totalDeaths = 0, percentDied = 0, year = 0, population = 95, stores = 2800, immigrants = 5, deaths, farmingLand = 0,
+            harvest = 3000, yeild = 3, acres = harvest / yeild, eaten = harvest - stores, landPrice, fullPeople, temp, bushelsUsedAsSeed;
+    static boolean plague = false;
+    final static String FINK = "DUE TO THIS EXTREME MISMANAGEMENT YOU HAVE NOT ONLY\n" +
+            "BEEN IMPEACHED AND THROWN OUT OF OFFICE BUT YOU HAVE\n" +
+            "ALSO BEEN DECLARED PERSONA NON GRATA!!\n";
+    Scanner input = new Scanner(System.in);
 
-    // must save in a file named Hammurabi.java
+
     Random rand = new Random();  // this is an instance variable
-    Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) { // required in every Java program
         new FitruHammurabi().playGame();
 
         FitruHammurabi x = new FitruHammurabi();
-//        x.harvest(100, 0);
-        x.askHowManyAcresToPlant(x.acresOwned, x.population, x.bushels);
 
-//       int z = ((20 * x.acresOwned) + x.grainInStorage) / ((100 * x.population) + 1);
-//       System.out.println(z);
+        int i = 0;
+        while(i<5) {
+            x.askHowManyAcresToPlant(x.acres, x.population, x.harvest);
+            x.harvest(x.acres, x.bushelsUsedAsSeed);
+            x.immigrants(x.population, x.acres, x.stores);
+            i++;
+        }
+
+
 
 
     }
@@ -34,75 +38,83 @@ public class FitruHammurabi {
 
     void playGame() {
 
-         int population = 100;
-         int acresOwned = 1000;
-         int bushels = 2800;
-         int grainInStorage = 0;
-         int bushelsUsedAsSeed = 0;
-         int immigrants = 0;
-         int farmingLand = 0;
-
-
-        FitruHammurabi x = new FitruHammurabi();
-
-//        x.harvest(acresOwned, bushelsUsedAsSeed);
-//        x.immigrants(population, acresOwned, grainInStorage);
 
 
 
 
-        // declare local variables here: grain, population, etc.
-        // statements go after the declations
     }
 
     public int immigrants(int population, int acresOwned, int grainInStorage) {
-        this.grainInStorage = grainInStorage;
+        this.stores = grainInStorage;
+        this.acres = acresOwned;
+        this.population = population;
         if (grainInStorage == 0) {
             String messageFail = "We have no grain's in storage, no on arrived to the city.";
             System.out.println(messageFail);
-
         } else {
-            immigrants = ((20 * acresOwned) + grainInStorage) / ((100 * population) + 1);
+            this.immigrants = ((20 * acresOwned) + grainInStorage) / ((100 * population) + 1);
+            this.population+=immigrants;
             return this.immigrants;
         }
         return this.immigrants = 0;
     }
 
     public int harvest(int acres, int bushelsUsedAsSeed) {
-        int randomNumber = rand.nextInt(6); if(randomNumber==0){
-            randomNumber = 1;
-        }
-        bushelsUsedAsSeed = acres * randomNumber;
-        this.bushelsUsedAsSeed = bushelsUsedAsSeed;
-        return this.bushelsUsedAsSeed;
+        int randomNumber = rand.nextInt(6);
+        randomNumber = yeild;
+        this.acres = acres;
+        this.bushelsUsedAsSeed=bushelsUsedAsSeed;
+
+        harvest = acres * randomNumber;
+        this.stores-=bushelsUsedAsSeed;
+
+        return this.harvest;
     }
 
 
     public int askHowManyAcresToPlant(int acresOwned, int population, int bushels) {
-        this.acresOwned = acresOwned;
+        this.acres = acresOwned;
         this.population = population;
-        this.bushels = bushels;
-        Scanner input = new Scanner(System.in);
-        System.out.print("How many acres do you want to plant with your grain's?");
-        int inputMessage = input.nextInt();
-        System.out.println(inputMessage + " acres planted");
-        if(this.bushels !=0 && this.population !=0 && this.acresOwned > inputMessage ) {
-            this.acresOwned = acresOwned - inputMessage;
-            this.bushels-=inputMessage;
-            this.farmingLand += inputMessage ;
-            return farmingLand;
-        } else if (this.bushels == 0) {
-            System.out.println("Sire, the amount of bushels we have is not enough for farming.");
-        } else if (this.population == 0) {
-            System.out.println("Uhhh, no, we don't have anyone to farm the land.");
-        } else if (this.acresOwned<inputMessage)
-        {System.out.println("Wow, I think we need to fire your math tutor. We don't have enough land to farm");}
+        this.stores = bushels;
 
-        if(this.farmingLand<this.population * 10) {
-            System.out.println("Sire, we don't have the man power to farming that much land. Please look over your report.");
-        } else {
-            this.farmingLand += inputMessage ;
+        System.out.print("\nHOW MANY ACRES DO YOU WISH TO PLANT WITH SEED?  ");
+        temp = input.nextInt();
+
+        fullPeople = temp / 20;
+        this.bushelsUsedAsSeed = temp;
+        do {
+//            System.out.print("\nHOW MANY ACRES DO YOU WISH TO PLANT WITH SEED?  ");
+//            temp = input.nextInt();
+            if (temp < 0)
+                epicFail(0);
+            if (temp > acres)
+                System.out.println("HAMURABI:  THINK AGAIN. YOU OWN ONLY " + acres + " ACRES. NOW THEN,");
+            if (temp / 2 > stores)
+                System.out.println("HAMURABI:  THINK AGAIN. YOU HAVE ONLY\n" +
+                        stores + " BUSHELS OF GRAIN. NOW THEN,");
+            if (temp > population * 10)
+                System.out.println("BUT YOU HAVE ONLY" + population + "PEOPLE TO TEND THE FIELDS. NOW THEN,");
+        } while (temp > acres || temp / 2 > stores || temp > population * 10);
+
+
+        return temp;
+    }
+
+
+
+
+    private static void epicFail(int x) {
+        String reason = "";
+        switch (x) {
+            case 0: reason = "HAMURABI:  I CANNOT DO WHAT YOU WISH.\n" +
+                    "GET YOURSELF ANOTHER STEWARD!!!!!"; break;
+            case 1: reason = "YOU STARVED " + deaths + " PEOPLE IN ONE YEAR!!!\n" +
+                    FINK; break;
         }
+        System.out.println(reason);
+        System.exit(0);
+    }
+
 
 //        int neededAmount = 20 * population;
 //        int currentBushels = bushels - neededAmount;
@@ -133,12 +145,11 @@ public class FitruHammurabi {
 
 
 
-        return inputMessage;
 
 
 
 
-    }
+
 
     /*
 
