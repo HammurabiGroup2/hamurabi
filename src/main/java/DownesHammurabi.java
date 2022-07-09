@@ -15,6 +15,7 @@ public class DownesHammurabi {
     static int totalDeaths = 0, percentDied = 0, year = 0, population = 95, stores = 2800, immigrants = 5, deaths,
             harvest = 3000, yeild = 3, acres = harvest / yeild, eaten = harvest - stores, landPrice, fullPeople, temp;
     static boolean plague = false;
+    static int starveDeaths = 0;
     final static String FINK = "DUE TO THIS EXTREME MISMANAGEMENT YOU HAVE NOT ONLY\n" +
             "BEEN IMPEACHED AND THROWN OUT OF OFFICE BUT YOU HAVE\n" +
             "ALSO BEEN DECLARED PERSONA NON GRATA!!\n";
@@ -186,28 +187,45 @@ public class DownesHammurabi {
     }
 
     int starvationDeaths(int population, int bushelsFedToPeople) {
-        int starvationDeaths = 0;
-        double amountOfBushelsEachP = bushelsFedToPeople/20;
+//        int starveDeaths = 0;
+        double peopleThatGet20Bushels = (bushelsFedToPeople/20); //TODO fix to more appropriate name for var
         int extraBushels = 0;
+        starveDeaths = (int) (population-peopleThatGet20Bushels);
         //TODO track emotion condition >= bushel of 20: POSITIVE MOODLET & ALIVE
         //TODO <bushel of 20: NEGATIVE MOODLET & DEAD
         //TODO maybe ENUM for moodlet
 
-        starvationDeaths = (int) (population-amountOfBushelsEachP);
-        // if starvation <0, that means there was an abundance of bushels
-        // after each person was distributed an amount of 20
-        // therefore store those extra in storage
-        if (starvationDeaths<0) {
-            extraBushels = Math.abs(starvationDeaths);
-            starvationDeaths=starvationDeaths+extraBushels;
+/*
+         if starvation <0, that means there was an abundance of bushels
+         after each person was distributed an amount of 20
+         therefore store those extra in storage
+*/
+        if (starveDeaths<0) {
+            extraBushels = Math.abs(starveDeaths);
+            starveDeaths=starveDeaths+extraBushels; //should equal out to 0
             System.out.println(":)");
         }
         else {
             System.out.println(":(");
         }
 
-        this.population = DownesHammurabi.population-starvationDeaths;
+        this.population = DownesHammurabi.population-starveDeaths;
 //        this.deaths += starvationDeaths;
-        return starvationDeaths;
+        return starveDeaths;
+    }
+
+    boolean uprising(int population, int totalPeopleStarved) {
+        boolean upriseHappening = false;
+//        this.population = population;
+        this.starveDeaths = totalPeopleStarved;
+        float percentOfPopStarved = (float)totalPeopleStarved/population*100;
+
+        if (percentOfPopStarved > 45.0) {
+            upriseHappening = true;
+        }
+        else {
+            upriseHappening = false;
+        }
+        return upriseHappening;
     }
 }

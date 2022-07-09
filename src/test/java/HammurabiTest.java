@@ -52,7 +52,6 @@ public class HammurabiTest {
     }
 
 
-/*
 
     @Test
     public final void testUprising() {
@@ -60,6 +59,7 @@ public class HammurabiTest {
         assertFalse("Should not have had an uprising!", ham.uprising(1000, 449));
     }
 
+/*
     @Test
     public final void testImmigrants() {
         int imm = ham.immigrants(10, 1200, 500);
