@@ -98,7 +98,11 @@
 //			population = population / 2;
 //			answer += "A HORRIBLE PLAGUE STRUCK!  HALF THE PEOPLE DIED.\n";
 //		}
+<<<<<<< HEAD
 //		answer += "POPULATION IS NOW " + population + ".\n" +
+=======
+//		answer += "POPULATION IS NOW " + population + "\n" +
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //				"THE CITY NOW OWNS " + acres + " ACRES.\n" +
 //				"YOU HARVESTED " + yeild + " BUSHELS PER ACRE.\n" +
 //				"RATS ATE " + eaten + " BUSHELS.\n" +

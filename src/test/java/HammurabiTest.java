@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class HammurabiTest {
+<<<<<<< HEAD
 
     hammurabi.nick ham;
 
@@ -41,10 +42,83 @@ public class HammurabiTest {
 
 
 
+=======
+    
+    FitruHammurabi ham;
+    
+//    boolean about(double expected, double actual) {
+//        return actual > 0.90 * expected && actual < 1.10 * expected;
+//    }
+
+    @Before
+    public void setUp() throws Exception {
+        ham = new FitruHammurabi();
+    }
+
+    @Test
+    public void immigrantsTest1() {
+        // Given
+        int population = 100;
+        int acresOwned = 1000;
+        int grainInStorage = 0;
+
+        // When
+        ham.immigrants(population, acresOwned, grainInStorage);
+
+
+        // Then
+        Assert.assertTrue(grainInStorage<=0);
+
+    }
+
+    @Test
+    public void immigrantsTest2() {
+        // Given
+        int population = 100;
+        int acresOwned = 1000;
+        int grainInStorage = 0;
+
+        ham.immigrants(population, acresOwned, grainInStorage);
+        int expectedImmigrants = 2;
+
+
+        // When
+        int actualImmigrants = ham.immigrants(population, acresOwned, grainInStorage);
+
+
+
+        // Then
+        Assert.assertEquals(expectedImmigrants, actualImmigrants);
+
+    }
+
+
+    @Test
+    public void harvestTest() {
+        // Given
+//        private int harvest(int acres, int bushelsUsedAsSeed) {
+        int acres = 50;
+        int randomNumber = 3;
+        int bushesUsedAsSeed = 150;
+        ham.harvest(acres, bushesUsedAsSeed);
+        int expectedResults = acres * randomNumber;
+
+
+
+        // When
+
+        // Then
+        Assert.assertEquals(expectedResults, bushesUsedAsSeed);
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 
 
 
 
+<<<<<<< HEAD
+=======
+    }
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 
 
 
@@ -64,7 +138,11 @@ public class HammurabiTest {
 //        assertTrue("Number of plagues is about " + percentPlagues + ", not about 15%.",
 //                   about(1500, number_of_plagues));
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testPlagueDeaths2() {
 //        int deaths = 0;
@@ -75,7 +153,11 @@ public class HammurabiTest {
 //        assertEquals("In a plague, " + deaths + "% of your people die, not 50%.",
 //                     50, deaths);
 //    }
+<<<<<<< HEAD
 //
+=======
+    
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testStarvationDeaths() {
 //        int deaths = ham.starvationDeaths(100, 1639);
@@ -85,19 +167,31 @@ public class HammurabiTest {
 //            fail("You starved a negative number of people!");
 //        }
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testUprising() {
 //        assertTrue("Should have had an uprising!", ham.uprising(1000, 451));
 //        assertFalse("Should not have had an uprising!", ham.uprising(1000, 449));
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testImmigrants() {
 //        int imm = ham.immigrants(10, 1200, 500);
 //        assertEquals("Wrong number of immigrants.", 25, imm);
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testHarvest() {
 //        int[] yield = new int[7];
@@ -110,7 +204,11 @@ public class HammurabiTest {
 //            assertTrue("You never have a yield of " + j + " bushels per acre.", yield[j] > 0);
 //        }
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testGrainEatenByRats1() {
 //        int infestations = 0;
@@ -124,7 +222,11 @@ public class HammurabiTest {
 //        assertTrue("Number of rat infestations is about " + percentInfestations +
 //                   ", not about 40%.", about(400, infestations));
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testGrainEatenByRats2() {
 //        int percent = 0;
@@ -140,7 +242,11 @@ public class HammurabiTest {
 //            assertTrue("Rats never ate " + j + "% of your grain.", counts[j] > 0);
 //        }
 //    }
+<<<<<<< HEAD
 //
+=======
+
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 //    @Test
 //    public final void testNewCostOfLand() {
 //        int[] cost = new int[24];
@@ -153,4 +259,9 @@ public class HammurabiTest {
 //            assertTrue("You never have a land cost of " + j + " bushels per acre.", cost[j] > 0);
 //        }
 //    }
+<<<<<<< HEAD
+=======
+//
+}
+>>>>>>> 72c92544b26438f58e76737999c7ab325ebf50d3
 
