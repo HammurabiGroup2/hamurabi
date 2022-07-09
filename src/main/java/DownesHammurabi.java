@@ -15,7 +15,7 @@ public class DownesHammurabi {
     static int totalDeaths = 0, percentDied = 0, year = 0, population = 95, stores = 2800, immigrants = 5, deaths,
             harvest = 3000, yeild = 3, acres = harvest / yeild, eaten = harvest - stores, landPrice, fullPeople, temp;
     static boolean plague = false;
-    static int starveDeaths = 0;
+    static int starveDeaths = 0; // added
     final static String FINK = "DUE TO THIS EXTREME MISMANAGEMENT YOU HAVE NOT ONLY\n" +
             "BEEN IMPEACHED AND THROWN OUT OF OFFICE BUT YOU HAVE\n" +
             "ALSO BEEN DECLARED PERSONA NON GRATA!!\n";
@@ -150,9 +150,9 @@ public class DownesHammurabi {
     }
 
     public static void main(String[] args) throws IOException {
-//        DownesHammurabi a = new DownesHammurabi();
-//        System.out.println("\t\t\t\tHAMURABI\n\t       CREATIVE COMPUTING MORRISTOWN, NEW JERSEY\n\n" +
-//                "TRY YOUR HAND AT GOVERNING ANCIENT SUMERIA\nSUCCESSFULLY FOR A TEN-YEAR TERM OF OFFICE.");
+        DownesHammurabi a = new DownesHammurabi();
+        System.out.println("\t\t\t\tHAMURABI\n\t       CREATIVE COMPUTING MORRISTOWN, NEW JERSEY\n\n" +
+                "TRY YOUR HAND AT GOVERNING ANCIENT SUMERIA\nSUCCESSFULLY FOR A TEN-YEAR TERM OF OFFICE.");
 //        while (year < 10)
 //            a.newYear();
 //        a.finished();
@@ -210,18 +210,17 @@ public class DownesHammurabi {
         }
 
         this.population = DownesHammurabi.population-starveDeaths;
-//        this.deaths += starvationDeaths;
         return starveDeaths;
     }
 
     boolean uprising(int population, int totalPeopleStarved) {
         boolean upriseHappening = false;
-//        this.population = population;
         this.starveDeaths = totalPeopleStarved;
         float percentOfPopStarved = (float)totalPeopleStarved/population*100;
 
-        if (percentOfPopStarved > 45.0) {
+        if (percentOfPopStarved > 45.00) {
             upriseHappening = true;
+            System.out.println("Terrible ruler, you should h");
         }
         else {
             upriseHappening = false;
