@@ -26,6 +26,7 @@ public class nick {         // must save in a file named Hammurabi.java
         int acresSold;
         int grainsFed;
         int acresOwned;
+        int grainsEaten;
 
 
        while(years <= 10){
@@ -53,6 +54,8 @@ public class nick {         // must save in a file named Hammurabi.java
             grainsFed = askHowMuchGrainToFeedPeople(bushels);
             bushels -=grainsFed;
             System.out.println("You have "+ bushels + " remaining");
+
+//grains eaten by rats
 
  //new cost of land
             price = newCostOfLand();
@@ -104,11 +107,12 @@ public class nick {         // must save in a file named Hammurabi.java
         int min=17;
         int random = (int) Math.floor(Math.random()*(max-min +1)+min);
         return random;
-
-
-
     }
 
+    int grainEatenByRats(int bushels){
+        int grainsEaten = bushels *(10);
+
+    }
 
 
 
