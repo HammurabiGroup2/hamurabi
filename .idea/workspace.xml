@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="128e0dca-7e40-4a82-809e-d3d163b57f9d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NickHammurabi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NickHammurabi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +55,16 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HammurabiTest.testUprising">
-    <configuration name="DownesHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DownesHammurabi" />
+  <component name="RunManager" selected="Application.NickHammurabi">
+    <configuration name="NickHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hammurabi.NickHammurabi" />
       <module name="hamurabi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hammurabi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NickHammurabi" />
         <item itemvalue="JUnit.HammurabiTest.testUprising" />
         <item itemvalue="JUnit.HammurabiTest.testStarvationDeaths" />
         <item itemvalue="JUnit.HammurabiTest.testPlagueDeaths2" />
         <item itemvalue="JUnit.HammurabiTest.testPlagueDeaths1" />
-        <item itemvalue="Application.DownesHammurabi" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +169,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/DownesHammurabi.java</url>
           <line>216</line>
-          <properties class="DownesHammurabi">
+          <properties class="DownesHammurabi" method="uprising">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
