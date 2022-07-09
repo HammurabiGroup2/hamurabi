@@ -29,7 +29,7 @@ public class nick {         // must save in a file named Hammurabi.java
 
 
        while(years <= 10){
-            printSummary();
+//            printSummary();
 
 
 //ask user how many acres to buy
@@ -38,6 +38,7 @@ public class nick {         // must save in a file named Hammurabi.java
            acres += acresBought; //keeping track of how many acres you have
            bushels -= acresBought*price; //how much bushels left...
            System.out.println("You have "+acres+ " acres and "+ bushels + " bushels left in storage.");
+           System.out.println(price);
 
 //ask user how many acres they want to sell
 
@@ -52,6 +53,9 @@ public class nick {         // must save in a file named Hammurabi.java
             grainsFed = askHowMuchGrainToFeedPeople(bushels);
             bushels -=grainsFed;
             System.out.println("You have "+ bushels + " remaining");
+
+ //new cost of land
+            price = newCostOfLand();
 
        }
 
@@ -96,6 +100,10 @@ public class nick {         // must save in a file named Hammurabi.java
     }
 
     int newCostOfLand(){
+        int max=23;
+        int min=17;
+        int random = (int) Math.floor(Math.random()*(max-min +1)+min);
+        return random;
 
 
 
@@ -106,25 +114,24 @@ public class nick {         // must save in a file named Hammurabi.java
 
 
 
-    public void printSummary() {
-        System.out.println("Oh my King Hammurabi!!\n" +
-                "You are in year " + years + " of your 10 year Dynasty.\n" +
-                "The Kingdom owns " + acres + " acres of land.\n" +
-                "Land is currently worth " + price + " bushels per acre.\n" +
-                "In your previous year, " + death + " starved to death. X.X\n" +
-                "In your previous year, " + immigrants + "entered your Kingdom.\n" +
-                "The population is now " + population + ".\n" +
-                "We harvested " + harvest + " bushels of grain\n" +
-                "O, King, rats have destroyed " + grainEaten + " bushels\n" +
-                "We only have " + bushel + " bushels left in the storage");
-    }
-
-    public void finalSummary(){
-        if(starved > 45*population /100){
-            System.out.println("You FOOL!!!!!!\n Step down thy throne.\n You starved " + starved + " people in your final year.\n You are not worthy.");
-        }
-
-    }
+//    public void printSummary() {
+//        System.out.println("Oh my King Hammurabi!!\n" +
+//                "You are in year " + years + " of your 10 year Dynasty.\n" +
+//                "The Kingdom owns " + acres + " acres of land.\n" +
+//                "Land is currently worth " + price + " bushels per acre.\n" +
+//                "In your previous year, " + death + " starved to death. X.X\n" +
+//                "In your previous year, " + immigrants + "entered your Kingdom.\n" +
+//                "The population is now " + population + ".\n" +
+//                "We harvested " + harvest + " bushels of grain\n" +
+//                "O, King, rats have destroyed " + grainEaten + " bushels\n" +
+//                "We only have " + bushel + " bushels left in the storage");
+//    }
+//
+//    public void finalSummary(){
+//        if(starved > 45*population /100){
+//            System.out.println("You FOOL!!!!!!\n Step down thy throne.\n You starved " + starved + " people in your final year.\n You are not worthy.");
+//        }
+//    }
 
 
 
