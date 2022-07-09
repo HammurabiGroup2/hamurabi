@@ -57,8 +57,16 @@ public class NickHammurabi {
             System.out.println("You have "+ bushels + " remaining");
 
 //grains eaten by rats
+            grainsEaten = grainEatenByRats(bushels);
+            if(grainsEaten>0){
+                System.out.println("***********************RATTATAS have appeared*************************\n" +
+                        "***********************You LOST " + grainsEaten + " bushels!!*************************");
 
-            //new cost of land
+            }
+            bushels -= grainsEaten;
+
+
+//new cost of land
             price = newCostOfLand();
 
         }
@@ -110,10 +118,13 @@ public class NickHammurabi {
         return random;
     }
 
-//    int grainEatenByRats(int bushels){
-//        int grainsEaten = bushels *(10);
-//
-//    }
+    int grainEatenByRats(int bushels) {
+        int grainsEaten = 0;
+        if (Math.random() * 100 < 40) {
+            grainsEaten = (int) (Math.floor(Math.random() * (30 - 10 + 1) + 10) * bushels) / 100;
+        }
+        return grainsEaten;
+    }
 
 
 
