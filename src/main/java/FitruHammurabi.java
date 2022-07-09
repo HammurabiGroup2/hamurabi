@@ -36,7 +36,8 @@ public class FitruHammurabi {
 
          int population = 100;
          int acresOwned = 1000;
-         int bushels = 0;
+         int bushels = 2800;
+         int grainInStorage = 0;
          int bushelsUsedAsSeed = 0;
          int immigrants = 0;
          int farmingLand = 0;
@@ -46,7 +47,6 @@ public class FitruHammurabi {
 
 //        x.harvest(acresOwned, bushelsUsedAsSeed);
 //        x.immigrants(population, acresOwned, grainInStorage);
-        x.askHowManyAcresToPlant(acresOwned, population, bushels);
 
 
 
@@ -56,6 +56,7 @@ public class FitruHammurabi {
     }
 
     public int immigrants(int population, int acresOwned, int grainInStorage) {
+        this.grainInStorage = grainInStorage;
         if (grainInStorage == 0) {
             String messageFail = "We have no grain's in storage, no on arrived to the city.";
             System.out.println(messageFail);

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128e0dca-7e40-4a82-809e-d3d163b57f9d" name="Changes" comment="">
+    <list default="true" id="2ba9ded0-b6b8-4940-84ad-b53839b09914" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FitruHammurabi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FitruHammurabi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +55,9 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HammurabiTest.testUprising">
-    <configuration name="DownesHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DownesHammurabi" />
+  <component name="RunManager" selected="Application.FitruHammurabi">
+    <configuration name="FitruHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FitruHammurabi" />
       <module name="hamurabi" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,11 +105,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FitruHammurabi" />
         <item itemvalue="JUnit.HammurabiTest.testUprising" />
         <item itemvalue="JUnit.HammurabiTest.testStarvationDeaths" />
         <item itemvalue="JUnit.HammurabiTest.testPlagueDeaths2" />
         <item itemvalue="JUnit.HammurabiTest.testPlagueDeaths1" />
-        <item itemvalue="Application.DownesHammurabi" />
       </list>
     </recent_temporary>
   </component>
@@ -129,6 +130,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -159,14 +165,28 @@
           <line>220</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/FitruHammurabi.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/DownesHammurabi.java</url>
           <line>216</line>
-          <properties class="DownesHammurabi">
+          <properties class="DownesHammurabi" method="uprising">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/FitruHammurabi.java</url>
+          <line>81</line>
+          <properties class="FitruHammurabi" method="askHowManyAcresToPlant">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
