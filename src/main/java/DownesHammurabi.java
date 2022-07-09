@@ -1,6 +1,6 @@
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,6 +20,11 @@ public class DownesHammurabi {
             "BEEN IMPEACHED AND THROWN OUT OF OFFICE BUT YOU HAVE\n" +
             "ALSO BEEN DECLARED PERSONA NON GRATA!!\n";
     Scanner input = new Scanner(System.in);
+
+    enum Moodlet {
+        POSITIVE,
+        NEGATIVE
+    }
 
     private void newYear() {
         year += 1;
@@ -187,14 +192,11 @@ public class DownesHammurabi {
     }
 
     int starvationDeaths(int population, int bushelsFedToPeople) {
-//        int starveDeaths = 0;
         double peopleThatGet20Bushels = (bushelsFedToPeople/20); //TODO fix to more appropriate name for var
         int extraBushels = 0;
         starveDeaths = (int) (population-peopleThatGet20Bushels);
-        //TODO track emotion condition >= bushel of 20: POSITIVE MOODLET & ALIVE
-        //TODO <bushel of 20: NEGATIVE MOODLET & DEAD
-        //TODO maybe ENUM for moodlet
-
+        Moodlet happyEffect = Moodlet.POSITIVE;
+        Moodlet upsetEffect = Moodlet.NEGATIVE;
 /*
          if starvation <0, that means there was an abundance of bushels
          after each person was distributed an amount of 20
@@ -203,10 +205,10 @@ public class DownesHammurabi {
         if (starveDeaths<0) {
             extraBushels = Math.abs(starveDeaths);
             starveDeaths=starveDeaths+extraBushels; //should equal out to 0
-            System.out.println(":)");
+            System.out.println(happyEffect);
         }
         else {
-            System.out.println(":(");
+            System.out.println(upsetEffect);
         }
 
         this.population = DownesHammurabi.population-starveDeaths;
@@ -220,10 +222,11 @@ public class DownesHammurabi {
 
         if (percentOfPopStarved > 45.00) {
             upriseHappening = true;
-            System.out.println("Terrible ruler, you should h");
+            System.out.println("Terrible ruler, you will be fired!");
         }
         else {
             upriseHappening = false;
+            System.out.println("You're doing a great job");
         }
         return upriseHappening;
     }
