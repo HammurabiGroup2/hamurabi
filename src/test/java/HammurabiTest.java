@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,6 +16,72 @@ public class HammurabiTest {
     public void setUp() throws Exception {
         ham = new FitruHammurabi();
     }
+
+    @Test
+    public void immigrantsTest1() {
+        // Given
+        int population = 100;
+        int acresOwned = 1000;
+        int grainInStorage = 0;
+
+        // When
+        ham.immigrants(population, acresOwned, grainInStorage);
+
+
+        // Then
+        Assert.assertTrue(grainInStorage<=0);
+
+    }
+
+    @Test
+    public void immigrantsTest2() {
+        // Given
+        int population = 100;
+        int acresOwned = 1000;
+        int grainInStorage = 0;
+
+        ham.immigrants(population, acresOwned, grainInStorage);
+        int expectedImmigrants = 2;
+
+
+        // When
+        int actualImmigrants = ham.immigrants(population, acresOwned, grainInStorage);
+
+
+
+        // Then
+        Assert.assertEquals(expectedImmigrants, actualImmigrants);
+
+    }
+
+
+    @Test
+    public void harvestTest() {
+        // Given
+//        private int harvest(int acres, int bushelsUsedAsSeed) {
+        int acres = 50;
+        int randomNumber = 3;
+        int bushesUsedAsSeed = 150;
+        ham.harvest(acres, bushesUsedAsSeed);
+        int expectedResults = acres * randomNumber;
+
+
+
+        // When
+
+        // Then
+        Assert.assertEquals(expectedResults, bushesUsedAsSeed);
+
+
+
+
+    }
+
+
+
+
+
+
 
 //    @Test
 //    public final void testPlagueDeaths1() {
