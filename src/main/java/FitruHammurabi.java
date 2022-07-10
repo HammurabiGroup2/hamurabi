@@ -36,8 +36,10 @@ public class FitruHammurabi {
     }
 
 
+
     void playGame() {
 
+        FitruHammurabi x = new FitruHammurabi();
 
 
 

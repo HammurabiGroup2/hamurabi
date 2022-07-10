@@ -56,8 +56,8 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FitruHammurabi">
-    <configuration name="FitruHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.FitruHammurabi"/>
+    <configuration name="FitruHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true"/>
       <option name="MAIN_CLASS_NAME" value="FitruHammurabi" />
   <component name="RunManager" selected="Application.NickHammurabi">
     <configuration name="NickHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
