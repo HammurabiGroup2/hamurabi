@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     static int totalDeaths = 0, percentDied = 0, year = 0, population = 100, stores = 2800, immigrants = 0, deaths,
             harvest = 0, yeild = 3, eaten = harvest - stores, landPrice, fullPeople, temp,
-            bushelsUsedAsSeed;
+            bushelsUsedAsSeed, negative;
     //            acres = harvest / yeild,
     static boolean plague = false;
     static int starveDeaths = 0; // added
@@ -23,6 +23,7 @@ public class Main {
     int bushels = 2800; //bushels in storage..
     int acres = 1000;
     int price = 19;    //price is in bushels/acre
+
 
 
     // declare local variables here: grain, population, etc.
@@ -54,7 +55,6 @@ public class Main {
             System.out.println(price);
 
 //ask user how many acres they want to sell
-
             if (acresBought == 0) {
                 acresSold = askHowManyAcresToSell(acres);
                 acres -= acresSold;
@@ -75,7 +75,7 @@ public class Main {
 
 
             play.immigrants(population, acres, bushels);
-            play.harvest(acres, temp);
+            play.harvest(temp, temp);
 //grains eaten by rats
             grainsEaten = grainEatenByRats(bushels);
             if (grainsEaten > 0) {
@@ -90,6 +90,7 @@ public class Main {
             price = newCostOfLand();
             years++;
         }
+        finalSummary();
     }
 
     int getNumber(String message) {
@@ -122,6 +123,7 @@ public class Main {
 
     int askHowMuchGrainToFeedPeople(int bushels) {
         int grainsFed = getNumber("How much grain do you want to feed your people? ");
+        this.bushels=bushels;
         while (grainsFed > bushels || grainsFed < 0) {
             grainsFed = getNumber("Try again.");
         }
@@ -150,28 +152,36 @@ public class Main {
     public int askHowManyAcresToPlant(int acresOwned, int population, int bushels) {
         this.acres = acresOwned;
         this.population = population;
-        this.stores = bushels;
+        this.bushels=bushels;
 
-        System.out.print("\nHOW MANY ACRES DO YOU WISH TO PLANT WITH SEED?  ");
-        temp = scanner.nextInt();
+        System.out.println("You have " + this.acres + " acres of land, " + this.population + " people and " + bushels + " bushels");
+        temp = getNumber("How many acres do you want to plant?\n");
+
+        this.negative = bushels-temp;
+//        System.out.println(negative);
 
         fullPeople = temp / 20;
         this.bushelsUsedAsSeed = temp;
-        do {
-//            System.out.print("\nHOW MANY ACRES DO YOU WISH TO PLANT WITH SEED?  ");
-//            temp = input.nextInt();
-//            if (temp < 0)
-//                epicFail(0);
-            if (temp > acres)
-                System.out.println("HAMURABI:  THINK AGAIN. YOU OWN ONLY " + acres + " ACRES. NOW THEN,");
-            if (temp / 2 > stores)
-                System.out.println("HAMURABI:  THINK AGAIN. YOU HAVE ONLY\n" +
-                        stores + " BUSHELS OF GRAIN. NOW THEN,");
-            if (temp > population * 10)
-                System.out.println("BUT YOU HAVE ONLY" + population + "PEOPLE TO TEND THE FIELDS. NOW THEN,");
-        } while (temp > acres || temp / 2 > stores || temp > population * 10);
+        while (temp < 0) {
+            temp = getNumber("Sire, I don't know what that is. Please how much bushels should we plant?");
+        }
+        while (temp > acres) {
+            temp = getNumber("Sire, please check again. You only have " + acres + " acres. So, how much bushels should we plant.");
+        }
 
+        while (this.negative<0) {
+            temp = getNumber("Ok, wow, sire, maybe we should get you better glasses. You only have\n" +
+                    bushels + " bushels of grain. So, uh how much bushels should we plant?");
+            negative = bushels-temp;
+            System.out.println(negative);
+        }
 
+        while (temp > population * 10) {
+            if (temp > population * 10) {
+                temp = getNumber("Sire, please read the report. We only have " + population + " people to tend the fields. \n" +
+                        "I know you get cranky in the morning, but this is a serious matter. How much bushels should we plant?");
+            }
+        }
         return temp;
     }
 
@@ -207,7 +217,7 @@ public class Main {
         int extraBushels = 0;
         starveDeaths = (int) (population - peopleThatGet20Bushels);
         DownesHammurabi.Moodlet happyEffect = DownesHammurabi.Moodlet.POSITIVE;
-        DownesHammurabi.Moodlet upsetEffect = DownesHammurabi.Moodlet.NEGATIVE;//TODO
+        DownesHammurabi.Moodlet upsetEffect = DownesHammurabi.Moodlet.NEGATIVE;
 /*
          if starvation <0, that means there was an abundance of bushels
          after each person was distributed an amount of 20
@@ -216,9 +226,9 @@ public class Main {
         if (starveDeaths < 0) {
             extraBushels = Math.abs(starveDeaths);
             starveDeaths = starveDeaths + extraBushels; //should equal out to 0
-            System.out.println(happyEffect);
+            System.out.println("The population feels: " +happyEffect);
         } else {
-            System.out.println(upsetEffect);
+            System.out.println("The population feels: " +upsetEffect);
         }
 
         this.population = population - starveDeaths;
@@ -232,9 +242,10 @@ public class Main {
 
         if (percentOfPopStarved > 45.00) {
             upriseHappening = true;
-            System.out.println("Terrible ruler, you will be fired!");
-
-            //TODO exit game
+//            System.out.println("Terrible ruler, you will be fired!");
+            System.out.println("You FOOL!!!!!!\n Step down thy throne.\n You starved " + starveDeaths +
+                    " people in your final " + years + " year.\n You are not worthy.");
+            System.exit(2);
         } else {
             upriseHappening = false;
             System.out.println("You're doing a great job");
@@ -262,16 +273,17 @@ public class Main {
         Random rand = new Random();
         int randomNumber = rand.nextInt(6);
         randomNumber = yeild;
-        this.acres = acres;
-        temp = bushelsUsedAsSeed;
+//        temp = acres;
+//        temp = bushelsUsedAsSeed;
 
         harvest = acres * randomNumber;
-        this.stores -= bushelsUsedAsSeed;
-        this.stores += harvest;
-        return this.harvest;
+        this.bushels -= bushelsUsedAsSeed;
+        this.bushels += harvest;
+        return harvest;
     }
 
     public void printSummary() {
+        String hc = healthCare();
         System.out.println("---------------------------------------------------\n"+
                 "---------------------------------------------------\n"+
                 "Oh my King Hammurabi!!\n" +
@@ -280,14 +292,43 @@ public class Main {
                 "Land is currently worth " + price + " bushels per acre.\n" +
                 "In your previous year, " + starveDeaths + " starved to death. X.X\n" +
                 "In your previous year, " + immigrants + " entered your Kingdom.\n" +
-                "*cough cough* Sire! We lost " + populationDecrease +" to the plague.\n" + //TODO cough statement
-                "Where is our free healthcare?!\n" +
-                "The population is now " + population + ".\n" +
+                hc + "The population is now " + population + ".\n" +
                 "We harvested " + harvest + " bushels of grain\n" +
                 "O, King, rats have destroyed " + grainsEaten + " bushels\n" +
                 "We only have " + bushels + " bushels left in the storage\n" +
                 "--------------------------------------------------------------------\n" +
                 "--------------------------------------------------------------------\n");
+    }
+
+    public String healthCare() {
+        if (populationDecrease>0) {
+//            System.out.println("*cough cough* Sire! We lost " + populationDecrease +
+//                    " to the plague.\n" + "Where is our free healthcare?!\n");
+
+            return "*cough cough* Sire! We lost " + populationDecrease +
+                    " to the plague.\n" + "Where is our free healthcare?!\n";
+        }
+        return "";
+    }
+
+
+    void finalSummary() {
+        if (population>=90) {
+            System.out.println("Starved Deaths: " + starveDeaths +
+                    "Acres per Person: " +(acres*population) +
+                    "CONGRATULATIONS, please become ruler again!");
+        }
+        else if(population>=50 && population<=89) {
+            System.out.println("Starved Deaths: " + starveDeaths +
+                    "Acres per Person: " + (acres*population) +
+                    "You did well, but could've done better.");
+        }
+        else if(population<50) {
+            System.out.println("Starved Deaths: " + starveDeaths +
+                    "Acres per Person: " + (acres*population) +
+                    "Welp...you survived. Can't say the same for the population though.");
+
+        }
     }
 
 
