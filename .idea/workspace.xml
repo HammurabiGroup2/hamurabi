@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="2ba9ded0-b6b8-4940-84ad-b53839b09914" name="Changes" comment="" />
-=======
     <list default="true" id="128e0dca-7e40-4a82-809e-d3d163b57f9d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/NickHammurabi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NickHammurabi.java" afterDir="false" />
     </list>
->>>>>>> 96ba5d5949f76991b25e1238e2c1859f714fa0e5
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,15 +56,12 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
   </component>
-<<<<<<< HEAD
-  <component name="RunManager" selected="Application.FitruHammurabi">
-    <configuration name="FitruHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.FitruHammurabi"/>
+    <configuration name="FitruHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true"/>
       <option name="MAIN_CLASS_NAME" value="FitruHammurabi" />
-=======
   <component name="RunManager" selected="Application.NickHammurabi">
     <configuration name="NickHammurabi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hammurabi.NickHammurabi" />
->>>>>>> 96ba5d5949f76991b25e1238e2c1859f714fa0e5
       <module name="hamurabi" />
       <extension name="coverage">
         <pattern>
@@ -121,11 +115,8 @@
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< HEAD
         <item itemvalue="Application.FitruHammurabi" />
-=======
         <item itemvalue="Application.NickHammurabi" />
->>>>>>> 96ba5d5949f76991b25e1238e2c1859f714fa0e5
         <item itemvalue="JUnit.HammurabiTest.testUprising" />
         <item itemvalue="JUnit.HammurabiTest.testStarvationDeaths" />
         <item itemvalue="JUnit.HammurabiTest.testPlagueDeaths2" />

@@ -54,28 +54,26 @@ public class HammurabiTest {
 
     }
 
-
-    @Test
-    public void harvestTest() {
-        // Given
-//        private int harvest(int acres, int bushelsUsedAsSeed) {
-        int acres = 50;
-        int randomNumber = 3;
-        int bushesUsedAsSeed = 150;
-        ham.harvest(acres, bushesUsedAsSeed);
-        int expectedResults = acres * randomNumber;
-
-
-
-        // When
-
-        // Then
-        Assert.assertEquals(expectedResults, bushesUsedAsSeed);
-
-
-
-
+        @Test
+    public final void testImmigrants() {
+        int imm = ham.immigrants(10, 1200, 500);
+        assertEquals("Wrong number of immigrants.", 25, imm);
     }
+
+
+//        @Test
+//    public final void testHarvest() {
+//        int[] yield = new int[7];
+//
+//        for (int i = 0; i < 1000; i++) {
+//            int harvest = ham.harvest(1);
+//            assertTrue("Illegal harvest per acre: " + harvest, harvest > 0 && harvest <= 6);
+//            yield[harvest] += 1;
+//        }
+//        for (int j = 1; j <= 6; j++) {
+//            assertTrue("You never have a yield of " + j + " bushels per acre.", yield[j] > 0);
+//        }
+//    }
 
 
 
