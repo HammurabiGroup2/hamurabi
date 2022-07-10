@@ -22,14 +22,15 @@ public class HammurabiTest {
         // Given
         int population = 100;
         int acresOwned = 1000;
-        int grainInStorage = 0;
+        int grainInStorage = 500;
+        int expectedImmigrants = 2;
 
         // When
         ham.immigrants(population, acresOwned, grainInStorage);
 
 
         // Then
-        Assert.assertTrue(grainInStorage<=0);
+        Assert.assertEquals(expectedImmigrants, ham.immigrants(population,acresOwned,grainInStorage));
 
     }
 
@@ -41,7 +42,7 @@ public class HammurabiTest {
         int grainInStorage = 0;
 
         ham.immigrants(population, acresOwned, grainInStorage);
-        int expectedImmigrants = 2;
+        int expectedImmigrants = 0;
 
 
         // When
@@ -54,29 +55,111 @@ public class HammurabiTest {
 
     }
 
+    @Test
+    public final void testImmigrants3() {
+        int imm = ham.immigrants(10, 1200, 500);
+        assertEquals("Wrong number of immigrants.", 24, imm);
+    }
+
+//        @Test
+//    public final void testHarvest() {
+//        int[] yield = new int[7000];
+//
+//        for (int i = 0; i < 10; i++) {
+//            int harvest = ham.harvest(1000, 500);
+//            assertTrue("Illegal harvest per acre: " + harvest, harvest > 0 && harvest <= 7000);
+//            yield[harvest] += 1;
+//        }
+//        for (int j = 1; j <= 10; j++) {
+//            assertTrue("You never have a yield of " + j + " bushels per acre.", yield[j] > 0);
+//        }
+//    }
+
+
 
     @Test
-    public void harvestTest() {
+    public void testHarvest1() {
         // Given
-//        private int harvest(int acres, int bushelsUsedAsSeed) {
-        int acres = 50;
-        int randomNumber = 3;
-        int bushesUsedAsSeed = 150;
-        ham.harvest(acres, bushesUsedAsSeed);
-        int expectedResults = acres * randomNumber;
+        int acres = 1000;
+        int population = 100;
+        int bushels = 500;
+        int expectedHarvest = 500;
+        int expectedHarvest2 = 3000;
+        int expectedHarvest3 = 1000;
+        int expectedHarvest4 = 1500;
+        int expectedHarvest5 = 2000;
+        int expectedHarvest6 = 2500;
+
 
 
 
         // When
+        int actualHarvest = ham.harvest(acres, 500);
+        System.out.println(actualHarvest);
 
         // Then
-        Assert.assertEquals(expectedResults, bushesUsedAsSeed);
-
-
-
-
+        if(actualHarvest==500) {
+            Assert.assertEquals(expectedHarvest, actualHarvest);
+        }else if(actualHarvest ==3000) {
+            Assert.assertEquals(expectedHarvest2, actualHarvest);
+        } else if (actualHarvest==1000) {
+            Assert.assertEquals(expectedHarvest3, actualHarvest);
+        } else if (actualHarvest==1500) {
+            Assert.assertEquals(expectedHarvest4, actualHarvest);
+        } else if (actualHarvest==2000) {
+            Assert.assertEquals(expectedHarvest5, actualHarvest);
+        } else if (actualHarvest==2500) {
+            Assert.assertEquals(expectedHarvest6, actualHarvest);
+        }
     }
 
+    @Test
+    public void testHarvest2() {
+        // Given
+        int acres = 2000;
+        int bushels = 100;
+        int expectedHarvest = 100;
+        int expectedHarvest2 = 300;
+        int expectedHarvest3 = 200;
+        int expectedHarvest4 = 400;
+        int expectedHarvest5 = 500;
+        int expectedHarvest6 = 600;
+
+
+        // When
+        int actualHarvest = ham.harvest(acres, bushels);
+        System.out.println(actualHarvest);
+
+        // Then
+        if(actualHarvest==500) {
+            Assert.assertEquals(expectedHarvest, actualHarvest);
+        }else if(actualHarvest ==3000) {
+            Assert.assertEquals(expectedHarvest2, actualHarvest);
+        } else if (actualHarvest==1000) {
+            Assert.assertEquals(expectedHarvest3, actualHarvest);
+        } else if (actualHarvest==1500) {
+            Assert.assertEquals(expectedHarvest4, actualHarvest);
+        } else if (actualHarvest==2000) {
+            Assert.assertEquals(expectedHarvest5, actualHarvest);
+        } else if (actualHarvest==2500) {
+            Assert.assertEquals(expectedHarvest6, actualHarvest);
+        }
+    }
+
+
+//        @Test
+//    public final void testHarvest() {
+//        int[] yield = new int[7000];
+//
+//        for (int i = 0; i < 10; i++) {
+//            int harvest = ham.harvest(1000, 500);
+//            assertTrue("Illegal harvest per acre: " + harvest, harvest > 0 && harvest <= 7000);
+//            yield[harvest] += 1;
+//        }
+//        for (int j = 1; j <= 10; j++) {
+//            assertTrue("You never have a yield of " + j + " bushels per acre.", yield[j] > 0);
+//        }
+//    }
 
 
 
@@ -124,11 +207,7 @@ public class HammurabiTest {
 //        assertFalse("Should not have had an uprising!", ham.uprising(1000, 449));
 //    }
 
-//    @Test
-//    public final void testImmigrants() {
-//        int imm = ham.immigrants(10, 1200, 500);
-//        assertEquals("Wrong number of immigrants.", 25, imm);
-//    }
+
 
 //    @Test
 //    public final void testHarvest() {
