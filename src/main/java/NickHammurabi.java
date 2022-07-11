@@ -111,14 +111,14 @@ public class NickHammurabi {
         return grainsFed;
     }
 
-    int newCostOfLand(){
+    public int newCostOfLand(){
         int max=23;
         int min=17;
         int random = (int) Math.floor(Math.random()*(max-min +1)+min);
         return random;
     }
 
-    int grainEatenByRats(int bushels) {
+    public int grainEatenByRats(int bushels) {
         int grainsEaten = 0;
         if (Math.random() * 100 < 40) {
             grainsEaten = (int) (Math.floor(Math.random() * (30 - 10 + 1) + 10) * bushels) / 100;
