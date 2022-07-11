@@ -46,13 +46,14 @@ public class Main {
         while (years <= 10) {
             printSummary();
 
-//ask user how many acres to buy
 
+//ask user how many acres to buy
+            System.out.println("Buy 0 to sell acres");
             acresBought = askHowManyAcresToBuy(price, bushels);
             acres += acresBought; //keeping track of how many acres you have
             bushels -= acresBought * price; //how much bushels left...
             System.out.println("You have " + acres + " acres and " + bushels + " bushels left in storage.");
-            System.out.println(price);
+            System.out.println("1 acre/"+price+" bushels");
 
 //ask user how many acres they want to sell
             if (acresBought == 0) {
@@ -65,7 +66,7 @@ public class Main {
 //ask how much grain to feed people
             grainsFed = askHowMuchGrainToFeedPeople(bushels);
             bushels -= grainsFed;
-            System.out.println("You have " + bushels + " remaining");
+            System.out.println("You have " + bushels + " bushels remaining");
 //            asks how many acres to plant
             play.askHowManyAcresToPlant(acres, population, bushels);
 
@@ -84,6 +85,7 @@ public class Main {
 
             }
             bushels -= grainsEaten;
+            bushels+=harvest;
 
 
 //new cost of land
@@ -156,6 +158,7 @@ public class Main {
 
         System.out.println("You have " + this.acres + " acres of land, " + this.population + " people and " + bushels + " bushels");
         temp = getNumber("How many acres do you want to plant?\n");
+        temp = 2*temp;
 
         this.negative = bushels-temp;
 //        System.out.println(negative);
@@ -244,11 +247,11 @@ public class Main {
             upriseHappening = true;
 //            System.out.println("Terrible ruler, you will be fired!");
             System.out.println("You FOOL!!!!!!\n Step down thy throne.\n You starved " + starveDeaths +
-                    " people in your final " + years + " year.\n You are not worthy.");
+                    " people in your final " + year + " year.\n You are not worthy.");
             System.exit(2);
         } else {
             upriseHappening = false;
-            System.out.println("You're doing a great job");
+//            System.out.println("You're doing a great job");
         }
         return upriseHappening;
     }
@@ -295,7 +298,7 @@ public class Main {
                 hc + "The population is now " + population + ".\n" +
                 "We harvested " + harvest + " bushels of grain\n" +
                 "O, King, rats have destroyed " + grainsEaten + " bushels\n" +
-                "We only have " + bushels + " bushels left in the storage\n" +
+                "We only have " + this.bushels + " bushels left in the storage\n" +
                 "--------------------------------------------------------------------\n" +
                 "--------------------------------------------------------------------\n");
     }
@@ -315,8 +318,8 @@ public class Main {
     void finalSummary() {
         if (population>=90) {
             System.out.println("Starved Deaths: " + starveDeaths +
-                    "Acres per Person: " +(acres*population) +
-                    "CONGRATULATIONS, please become ruler again!");
+                    "\nAcres per Person: " +(acres*population) +
+                    "\nCONGRATULATIONS, please become ruler again!");
         }
         else if(population>=50 && population<=89) {
             System.out.println("Starved Deaths: " + starveDeaths +
