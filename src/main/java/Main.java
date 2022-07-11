@@ -48,7 +48,7 @@ public class Main {
 
 
 //ask user how many acres to buy
-            System.out.println("Buy 0 to sell acres");
+            System.out.println("Enter 0 to sell acres");
             acresBought = askHowManyAcresToBuy(price, bushels);
             acres += acresBought; //keeping track of how many acres you have
             bushels -= acresBought * price; //how much bushels left...
@@ -85,6 +85,7 @@ public class Main {
 
             }
             bushels -= grainsEaten;
+            bushels-=bushelsUsedAsSeed;
             bushels+=harvest;
 
 
@@ -92,6 +93,7 @@ public class Main {
             price = newCostOfLand();
             years++;
         }
+
         finalSummary();
     }
 
